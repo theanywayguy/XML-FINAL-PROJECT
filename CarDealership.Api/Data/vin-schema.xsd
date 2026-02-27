@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DecodedVin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Make" type="xs:string"/>
+        <xs:element name="Model" type="xs:string"/>
+        <xs:element name="Year" type="xs:integer"/>
+        <xs:element name="FuelType" type="xs:string"/>
+        <xs:element name="Horsepower" type="xs:integer"/>
+      </xs:sequence>
+      <xs:attribute name="vin" type="xs:string" use="required"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
