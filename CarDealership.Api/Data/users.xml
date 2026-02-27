@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<users>
+  <user>
+    <username>admin</username>
+    <passwordHash>$2a$11$gEGFaqvRK.9NTH9fpk8anOkUY/Dd/4X4laLTz186lSqWZj5Zsp2n6</passwordHash>
+    <role>Manager</role>
+  </user>
+  <user>
+    <username>John</username>
+    <passwordHash>$2a$11$hmx/XXL0rjL9HXlFoTWLA.G5Kb9MMi3ipghXYlg8dtvIpNTZsdFxK</passwordHash>
+    <role>Salesperson</role>
+  </user>
+  <user>
+    <username>Janine</username>
+    <passwordHash>$2a$11$kUrjLvYI1B5j7FjkqRdmk.LrKMj0ITSRVDx7bd/9CFF76vYPy13Tq</passwordHash>
+    <role>Salesperson</role>
+  </user>
+</users>

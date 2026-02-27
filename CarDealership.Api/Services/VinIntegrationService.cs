@@ -30,18 +30,30 @@ public class VinIntegrationService
         using var jsonDoc = JsonDocument.Parse(jsonString);
         var results = jsonDoc.RootElement.GetProperty("Results")[0];
 
-        // Safely extract values (NHTSA returns empty strings for missing data)
-        var make = results.GetProperty("Make").GetString() ?? "Unknown";
-        var model = results.GetProperty("Model").GetString() ?? "Unknown";
-        var yearStr = results.GetProperty("ModelYear").GetString();
-        var fuelType = results.GetProperty("FuelTypePrimary").GetString() ?? "Unknown";
+        // Safely extract Make, Model, and Year (catching empty strings)
+        var make = results.TryGetProperty("Make", out var makeProp) ? makeProp.GetString() : null;
+        if (string.IsNullOrWhiteSpace(make)) make = "Unknown";
 
-        // NHTSA API flattens horsepower under EngineHP or EngineBrake_hp depending on the exact vehicle.
-        var hpStr = results.GetProperty("EngineHP").GetString();
-        if (string.IsNullOrWhiteSpace(hpStr)) hpStr = results.GetProperty("EngineBrake_hp").GetString();
+        var model = results.TryGetProperty("Model", out var modelProp) ? modelProp.GetString() : null;
+        if (string.IsNullOrWhiteSpace(model)) model = "Unknown";
 
+        var yearStr = results.TryGetProperty("ModelYear", out var yearProp) ? yearProp.GetString() : null;
         var year = int.TryParse(yearStr, out var y) ? y : DateTime.Now.Year;
-        var hp = int.TryParse(hpStr, out var h) ? h : 0; // Default to 0 if NHTSA lacks data
+
+        // Safely extract Fuel Type (catching empty strings)
+        var fuelType = results.TryGetProperty("FuelTypePrimary", out var fuelProp) ? fuelProp.GetString() : null;
+        if (string.IsNullOrWhiteSpace(fuelType)) fuelType = "Unknown";
+
+        // Safely extract and parse Horsepower (handling decimals like "315.0000")
+        string? hpStr = null;
+        if (results.TryGetProperty("EngineHP", out var hpProp)) hpStr = hpProp.GetString();
+        if (string.IsNullOrWhiteSpace(hpStr) && results.TryGetProperty("EngineBrake_hp", out var brakeHpProp)) hpStr = brakeHpProp.GetString();
+
+        int hp = 0;
+        if (!string.IsNullOrWhiteSpace(hpStr) && double.TryParse(hpStr, out var parsedHp))
+        {
+            hp = (int)Math.Round(parsedHp); // Converts 315.0000 to 315
+        }
 
         // 2. Convert JSON response data to XML
         var xmlDoc = new XDocument(
@@ -67,6 +79,7 @@ public class VinIntegrationService
         // 4. Integrate into system (Return a Car template)
         return new Car
         {
+            Id = vin,
             Brand = make,
             Model = model,
             Year = year,
