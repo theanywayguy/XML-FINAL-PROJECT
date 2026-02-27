@@ -1,0 +1,38 @@
+# Build output
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.userprefs
+*.resharper
+*.DotSettings.user
+
+# Visual Studio / Rider / IDE stuff
+.vs/
+.idea/
+*.ncrunch*
+*.cache
+*.log
+
+# Rider
+.idea/
+*.iml
+
+# NuGet
+*.nupkg
+# Packages folder is usually not committed
+packages/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.DS_Store
+
+# ASP.NET
+appsettings.Development.json

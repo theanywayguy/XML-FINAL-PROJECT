@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dealership>
+  <cars>
+    <car>
+      <brand>Futuristic</brand>
+      <model>X1</model>
+      <year>2025</year>
+      <price currency="USD">-5000</price>
+      <engine type="nuclear">Fusion Reactor</engine>
+      <horsepower>10000</horsepower>
+    </car>
+  </cars>
+</dealership>
