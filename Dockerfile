@@ -1,4 +1,4 @@
-# 1. Base Runtime Stage (Alpine Linux for small size)
+# 1. Base Runtime Stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
 WORKDIR /app
 EXPOSE 8080 
@@ -16,17 +16,22 @@ RUN dotnet build "CarDealership.Api.csproj" -c Release -o /app/build
 FROM build AS publish
 RUN dotnet publish "CarDealership.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
-# 4. Final Stage (The production image)
+# 4. Final Stage
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-# --- NEW: Bake the XML and XSD files into the image ---
-# This copies your local 'CarDealership.Api/Data' folder to '/app/Data' inside the image
+# Bake the Data folder in as a default
 COPY CarDealership.Api/Data ./Data
 
-# Crucial for Alpine: Ensure the app has permissions to write to the XML files
+# Ensure permissions for the XML database (crucial for both internal & volume use)
 USER root
 RUN chmod -R 777 /app/Data
+
+# --- PRO HEALTHCHECK ---
+# Hits your internal /health endpoint. 
+# 0 = healthy, 1 = unhealthy.
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1
 
 ENTRYPOINT ["dotnet", "CarDealership.Api.dll"]
