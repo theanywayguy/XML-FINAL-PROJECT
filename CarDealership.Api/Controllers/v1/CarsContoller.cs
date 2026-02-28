@@ -11,7 +11,6 @@ namespace CarDealershipApi.Controllers.v1;
 [ApiController]
 [Route("api/v1/[controller]")]
 [Produces("application/xml")]
-[Consumes("application/xml")]
 [Authorize(Roles = "Manager,Salesperson")] // Base access requires at least Salesperson role
 public class CarsController : ControllerBase
 {
@@ -90,6 +89,7 @@ public class CarsController : ControllerBase
     /// <response code="400">If the XML payload is invalid or breaks XSD rules.</response>
     /// <response code="500">If there is an internal server error.</response>
     [HttpPost]
+    [Consumes("application/xml")]
     [ProducesResponseType(typeof(Car), 201)]
     [ProducesResponseType(typeof(XmlError), 400)]
     [ProducesResponseType(typeof(XmlError), 500)]
@@ -138,6 +138,7 @@ public class CarsController : ControllerBase
     /// <response code="404">If the car is not found.</response>
     /// <response code="500">If there is an internal server error.</response>
     [HttpPut("{id}")]
+    [Consumes("application/xml")]
     [ProducesResponseType(200)]
     [ProducesResponseType(typeof(XmlError), 400)]
     [ProducesResponseType(typeof(XmlError), 404)]

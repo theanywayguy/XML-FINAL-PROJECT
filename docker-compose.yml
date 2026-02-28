@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  cardealership-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: autoaxis-api
+    ports:
+      # Maps your familiar port 5048 on your machine to port 8080 inside the container
+      - "5048:8080"
+    volumes:
+      # VERY IMPORTANT: This keeps your XML data persistent across container restarts!
+      # It maps the local Data folder to the container's Data folder.
+      - ./CarDealership.Api/Data:/app/Data
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    restart: unless-stopped

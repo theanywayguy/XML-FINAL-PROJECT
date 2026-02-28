@@ -1,0 +1,8 @@
+# .dockerignore
+dealership-frontend/
+**/.git/
+**/bin/
+**/obj/
+**/logs/
+.vs/
+.vscode/

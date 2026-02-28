@@ -5,17 +5,9 @@
       <brand>Honda</brand>
       <model>Civic</model>
       <year>2021</year>
-      <price currency="USD">22000</price>
+      <price currency="USD">220000.00</price>
       <engine type="petrol">Inline 4</engine>
       <horsepower>158</horsepower>
-    </car>
-    <car id="c4">
-      <brand>Tesla</brand>
-      <model>Model 3</model>
-      <year>2023</year>
-      <price currency="USD">45000</price>
-      <engine type="electric">Dual Motor</engine>
-      <horsepower>346</horsepower>
     </car>
     <car id="c6">
       <brand>BMW</brand>

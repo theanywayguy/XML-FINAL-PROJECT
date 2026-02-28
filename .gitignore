@@ -3,7 +3,7 @@ bin/
 obj/
 out/
 logs/
-
+dealership-frontend/
 # User-specific files
 *.user
 *.suo

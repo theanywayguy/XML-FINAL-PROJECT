@@ -194,6 +194,9 @@ else
     app.UseHsts();
 }
 
+//Allow .NET to serve CSS, JS, and HTML from the wwwroot folder
+app.UseStaticFiles();
+
 // Redirects all standard HTTP traffic to secure HTTPS
 app.UseHttpsRedirection();
 
@@ -210,6 +213,10 @@ app.MapControllers();
 
 // Maps the health check to a specific URL path
 app.MapHealthChecks("/api/v1/health");
+
+// If a user requests a URL that .NET doesn't recognize (like /sales/dashboard),
+// it will send them the React index.html file so React Router can handle it.
+app.MapFallbackToFile("index.html");
 
 // Starts the application
 app.Run();
