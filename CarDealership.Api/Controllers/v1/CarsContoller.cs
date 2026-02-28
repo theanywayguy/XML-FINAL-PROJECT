@@ -53,17 +53,9 @@ public class CarsController : ControllerBase
     [ProducesResponseType(typeof(XmlError), 500)]
     public IActionResult GetCars()
     {
-        try
-        {
-            var cars = _dataService.GetAllCars().ToList();
-            _logger.LogInformation("Action: GetCars | IP: {IpAddress} | Status: Success | User: {Username} retrieved all cars.", GetIpAddress(), GetUsername());
-            return Ok(cars);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Action: GetCars | IP: {IpAddress} | Status: Failed - Internal error for user {Username}.", GetIpAddress(), GetUsername());
-            return XmlErrorResponse(500, "An internal server error occurred.");
-        }
+        var cars = _dataService.GetAllCars().ToList();
+        _logger.LogInformation("Action: GetCars | IP: {IpAddress} | Status: Success | User: {Username} retrieved all cars.", GetIpAddress(), GetUsername());
+        return Ok(cars);
     }
 
     /// <summary>
@@ -79,23 +71,15 @@ public class CarsController : ControllerBase
     [ProducesResponseType(typeof(XmlError), 500)]
     public IActionResult GetCar(string id)
     {
-        try
+        var car = _dataService.GetCarById(id);
+        if (car == null)
         {
-            var car = _dataService.GetCarById(id);
-            if (car == null)
-            {
-                _logger.LogWarning("Action: GetCar | IP: {IpAddress} | Status: Failed - Car {CarId} not found. | User: {Username}", GetIpAddress(), id, GetUsername());
-                return XmlErrorResponse(404, $"Car with id {id} not found.");
-            }
+            _logger.LogWarning("Action: GetCar | IP: {IpAddress} | Status: Failed - Car {CarId} not found. | User: {Username}", GetIpAddress(), id, GetUsername());
+            return XmlErrorResponse(404, $"Car with id {id} not found.");
+        }
 
-            _logger.LogInformation("Action: GetCar | IP: {IpAddress} | Status: Success - Retrieved car {CarId}. | User: {Username}", GetIpAddress(), id, GetUsername());
-            return Ok(car);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Action: GetCar | IP: {IpAddress} | Status: Failed - Error retrieving car {CarId}. | User: {Username}", GetIpAddress(), id, GetUsername());
-            return XmlErrorResponse(500, "An internal server error occurred.");
-        }
+        _logger.LogInformation("Action: GetCar | IP: {IpAddress} | Status: Success - Retrieved car {CarId}. | User: {Username}", GetIpAddress(), id, GetUsername());
+        return Ok(car);
     }
 
     /// <summary>
@@ -142,11 +126,6 @@ public class CarsController : ControllerBase
             _logger.LogWarning("Action: AddCar | IP: {IpAddress} | Status: Failed - Argument error. | User: {Username} | Message: {Message}", GetIpAddress(), GetUsername(), ex.Message);
             return XmlErrorResponse(400, ex.Message);
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Action: AddCar | IP: {IpAddress} | Status: Failed - Unexpected error. | User: {Username}", GetIpAddress(), GetUsername());
-            return XmlErrorResponse(500, "An internal server error occurred.");
-        }
     }
 
     /// <summary>
@@ -165,37 +144,29 @@ public class CarsController : ControllerBase
     [ProducesResponseType(typeof(XmlError), 500)]
     public IActionResult UpdateCarPrice(string id, [FromBody] PriceUpdate update)
     {
-        try
+        if (update == null || update.NewPrice <= 0)
         {
-            if (update == null || update.NewPrice <= 0)
-            {
-                _logger.LogWarning("Action: UpdatePrice | IP: {IpAddress} | Status: Failed - Invalid price data. | Car: {CarId} | User: {Username}", GetIpAddress(), id, GetUsername());
-                return XmlErrorResponse(400, "Invalid price data in XML.");
-            }
-
-            var success = _dataService.UpdateCarPrice(id, update.NewPrice);
-            if (!success)
-            {
-                _logger.LogWarning("Action: UpdatePrice | IP: {IpAddress} | Status: Failed - Car not found. | Car: {CarId} | User: {Username}", GetIpAddress(), id, GetUsername());
-                return XmlErrorResponse(404, $"Car with id {id} not found.");
-            }
-
-            var validationErrors = _validationService.ValidateDealershipXml();
-            if (validationErrors.Any())
-            {
-                var errorMsg = "Update breaks XSD validation: " + string.Join(" | ", validationErrors);
-                _logger.LogWarning("Action: UpdatePrice | IP: {IpAddress} | Status: Failed - XSD validation broke. | User: {Username} | Errors: {Errors}", GetIpAddress(), GetUsername(), errorMsg);
-                return XmlErrorResponse(400, errorMsg);
-            }
-
-            _logger.LogInformation("Action: UpdatePrice | IP: {IpAddress} | Status: Success | Car: {CarId} | New Price: {NewPrice} | User: {Username}", GetIpAddress(), id, update.NewPrice, GetUsername());
-            return Ok();
+            _logger.LogWarning("Action: UpdatePrice | IP: {IpAddress} | Status: Failed - Invalid price data. | Car: {CarId} | User: {Username}", GetIpAddress(), id, GetUsername());
+            return XmlErrorResponse(400, "Invalid price data in XML.");
         }
-        catch (Exception ex)
+
+        var success = _dataService.UpdateCarPrice(id, update.NewPrice);
+        if (!success)
         {
-            _logger.LogError(ex, "Action: UpdatePrice | IP: {IpAddress} | Status: Failed - Error updating car. | Car: {CarId} | User: {Username}", GetIpAddress(), id, GetUsername());
-            return XmlErrorResponse(500, "An internal server error occurred.");
+            _logger.LogWarning("Action: UpdatePrice | IP: {IpAddress} | Status: Failed - Car not found. | Car: {CarId} | User: {Username}", GetIpAddress(), id, GetUsername());
+            return XmlErrorResponse(404, $"Car with id {id} not found.");
         }
+
+        var validationErrors = _validationService.ValidateDealershipXml();
+        if (validationErrors.Any())
+        {
+            var errorMsg = "Update breaks XSD validation: " + string.Join(" | ", validationErrors);
+            _logger.LogWarning("Action: UpdatePrice | IP: {IpAddress} | Status: Failed - XSD validation broke. | User: {Username} | Errors: {Errors}", GetIpAddress(), GetUsername(), errorMsg);
+            return XmlErrorResponse(400, errorMsg);
+        }
+
+        _logger.LogInformation("Action: UpdatePrice | IP: {IpAddress} | Status: Success | Car: {CarId} | New Price: {NewPrice} | User: {Username}", GetIpAddress(), id, update.NewPrice, GetUsername());
+        return Ok();
     }
 
     /// <summary>
@@ -211,60 +182,45 @@ public class CarsController : ControllerBase
     [ProducesResponseType(typeof(XmlError), 500)]
     public IActionResult DeleteCar(string id)
     {
-        try
+        var success = _dataService.DeleteCar(id);
+        if (!success)
         {
-            var success = _dataService.DeleteCar(id);
-            if (!success)
-            {
-                _logger.LogWarning("Action: DeleteCar | IP: {IpAddress} | Status: Failed - Car not found. | Car: {CarId} | User: {Username}", GetIpAddress(), id, GetUsername());
-                return XmlErrorResponse(404, $"Car with id {id} not found.");
-            }
+            _logger.LogWarning("Action: DeleteCar | IP: {IpAddress} | Status: Failed - Car not found. | Car: {CarId} | User: {Username}", GetIpAddress(), id, GetUsername());
+            return XmlErrorResponse(404, $"Car with id {id} not found.");
+        }
 
-            _logger.LogInformation("Action: DeleteCar | IP: {IpAddress} | Status: Success | Car: {CarId} | User: {Username}", GetIpAddress(), id, GetUsername());
-            return Ok();
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Action: DeleteCar | IP: {IpAddress} | Status: Failed - Internal Error. | Car: {CarId} | User: {Username}", GetIpAddress(), id, GetUsername());
-            return XmlErrorResponse(500, "An internal server error occurred.");
-        }
+        _logger.LogInformation("Action: DeleteCar | IP: {IpAddress} | Status: Success | Car: {CarId} | User: {Username}", GetIpAddress(), id, GetUsername());
+        return Ok();
     }
 
     /// <summary>
-    /// Generates an HTML report of the XML inventory using an XSLT transformation. (Manager role required)
+    /// Searches the inventory using a dynamic XPath query based on provided criteria.
     /// </summary>
-    /// <response code="200">Returns the formatted HTML report.</response>
-    /// <response code="500">If the XSLT transformation fails.</response>
-    [HttpGet("/report")]
-    [Produces("text/html")]
-    [ProducesResponseType(typeof(string), 200)]
-    [ProducesResponseType(typeof(XmlError), 500)]
-    [Authorize(Roles = "Manager")] // Strict restriction: Only Managers can generate reports
-    public IActionResult GetInventoryReport()
-    {
-        try
-        {
-            _logger.LogInformation("Action: GetInventoryReport | IP: {IpAddress} | Status: Success | Manager: {Username} generated HTML report.", GetIpAddress(), GetUsername());
-            var html = _xsltService.GenerateHtmlReport();
-            return Content(html, "text/html");
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Action: GetInventoryReport | IP: {IpAddress} | Status: Failed - XSLT error. | Manager: {Username}", GetIpAddress(), GetUsername());
-            return XmlErrorResponse(500, "XSLT Transformation failed.");
-        }
-    }
-
-    /// <summary>
-    /// Executes an XPath query to retrieve all hybrid vehicles from the inventory.
-    /// </summary>
-    /// <response code="200">Returns a list of hybrid cars.</response>
-    [HttpGet("xpath/hybrid")]
+    /// <param name="brand">Filter by car brand (e.g., Toyota).</param>
+    /// <param name="model">Filter by car model (e.g., Camry).</param>
+    /// <param name="year">Filter by specific year.</param>
+    /// <param name="minPrice">Minimum price boundary.</param>
+    /// <param name="maxPrice">Maximum price boundary.</param>
+    /// <param name="isHybrid">Filter by hybrid status.</param>
+    /// <response code="200">Returns a list of cars matching the criteria.</response>
+    /// <response code="500">If there is an internal server error.</response>
+    [HttpGet("search")]
     [ProducesResponseType(typeof(List<Car>), 200)]
-    public IActionResult GetHybridCars()
+    [ProducesResponseType(typeof(XmlError), 500)]
+    public IActionResult SearchCars(
+        [FromQuery] string? brand = null,
+        [FromQuery] string? model = null,
+        [FromQuery] int? year = null,
+        [FromQuery] decimal? minPrice = null,
+        [FromQuery] decimal? maxPrice = null,
+        [FromQuery] bool? isHybrid = null)
     {
-        _logger.LogInformation("Action: GetHybridCars | IP: {IpAddress} | Status: Success | User: {Username} executed XPath query.", GetIpAddress(), GetUsername());
-        return Ok(_dataService.GetHybridCars().ToList());
+        _logger.LogInformation("Action: SearchCars | IP: {IpAddress} | Status: Initiated | User: {Username} | Brand: {Brand}, Model: {Model}", GetIpAddress(), GetUsername(), brand, model);
+
+        var cars = _dataService.SearchCars(brand, model, year, minPrice, maxPrice, isHybrid).ToList();
+
+        _logger.LogInformation("Action: SearchCars | IP: {IpAddress} | Status: Success | Found {Count} cars.", GetIpAddress(), cars.Count);
+        return Ok(cars);
     }
 
     /// <summary>
@@ -293,11 +249,6 @@ public class CarsController : ControllerBase
         {
             _logger.LogWarning("Action: DecodeVin | IP: {IpAddress} | Status: Failed - XSD rules broken for {Vin}. | User: {Username} | Error: {Error}", GetIpAddress(), vin, GetUsername(), ex.Message);
             return XmlErrorResponse(400, ex.Message);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Action: DecodeVin | IP: {IpAddress} | Status: Failed - External API failure for {Vin}. | User: {Username}", GetIpAddress(), vin, GetUsername());
-            return XmlErrorResponse(500, "External API integration failed.");
         }
     }
 }

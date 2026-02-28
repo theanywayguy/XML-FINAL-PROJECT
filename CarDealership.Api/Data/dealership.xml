@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dealership>
   <cars>
-    <car id="c1">
-      <brand>Toyota</brand>
-      <model>Corolla</model>
-      <year>2020</year>
-      <price currency="USD">20000</price>
-      <engine type="petrol">Inline 4</engine>
-      <horsepower>139</horsepower>
-    </car>
     <car id="c2">
       <brand>Honda</brand>
       <model>Civic</model>
@@ -17,14 +9,6 @@
       <engine type="petrol">Inline 4</engine>
       <horsepower>158</horsepower>
     </car>
-    <car id="c3">
-      <brand>Ford</brand>
-      <model>Mustang</model>
-      <year>2019</year>
-      <price currency="USD">35000</price>
-      <engine type="petrol">V8</engine>
-      <horsepower>450</horsepower>
-    </car>
     <car id="c4">
       <brand>Tesla</brand>
       <model>Model 3</model>
@@ -32,14 +16,6 @@
       <price currency="USD">45000</price>
       <engine type="electric">Dual Motor</engine>
       <horsepower>346</horsepower>
-    </car>
-    <car id="c5">
-      <brand>Toyota</brand>
-      <model>Prius</model>
-      <year>2022</year>
-      <price currency="USD">1000.00</price>
-      <engine type="hybrid">Hybrid Synergy Drive</engine>
-      <horsepower>121</horsepower>
     </car>
     <car id="c6">
       <brand>BMW</brand>
@@ -209,17 +185,21 @@
       <engine type="petrol">strinvg</engine>
       <horsepower>100</horsepower>
     </car>
+    <car id="c3">
+      <brand>Ford</brand>
+      <model>Mustang</model>
+      <year>2019</year>
+      <price currency="USD">35000</price>
+      <engine type="petrol">V8</engine>
+      <horsepower>450</horsepower>
+    </car>
+    <car id="c142421">
+      <brand>string</brand>
+      <model>string</model>
+      <year>2012</year>
+      <price currency="string">100</price>
+      <engine type="petrol">Hybrid</engine>
+      <horsepower>1000</horsepower>
+    </car>
   </cars>
-  <customers>
-    <customer id="cust1">
-      <name>Alice Smith</name>
-    </customer>
-    <customer id="cust2">
-      <name>Bob Jones</name>
-    </customer>
-  </customers>
-  <sales>
-    <sale carId="c4" customerId="cust1" />
-    <sale carId="c16" customerId="cust2" />
-  </sales>
 </dealership>

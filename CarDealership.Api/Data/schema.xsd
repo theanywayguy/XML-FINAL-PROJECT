@@ -55,35 +55,6 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-
-        <xs:element name="customers">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="customer" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="name" type="xs:string"/>
-                  </xs:sequence>
-                  <xs:attribute name="id" type="xs:ID" use="required"/>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-
-        <xs:element name="sales">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="sale" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:attribute name="carId" type="xs:IDREF" use="required"/>
-                  <xs:attribute name="customerId" type="xs:IDREF" use="required"/>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-
       </xs:sequence>
     </xs:complexType>
   </xs:element>

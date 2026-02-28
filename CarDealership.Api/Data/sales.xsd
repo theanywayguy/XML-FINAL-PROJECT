@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  
+  <xs:element name="sales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="sale" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              
+              <xs:element name="salesmanId" type="xs:string" />
+              
+              <xs:element name="customerId" type="xs:string" />
+              
+              <xs:element name="carId">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:length value="17" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              
+              <xs:element name="dateTime" type="xs:dateTime" />
+              
+              <xs:element name="paymentMethod">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Cash" />
+                    <xs:enumeration value="Credit" />
+                    <xs:enumeration value="Financed" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              
+              <xs:element name="price">
+                <xs:simpleType>
+                  <xs:restriction base="xs:decimal">
+                    <xs:minExclusive value="0" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:any processContents="skip" minOccurs="0" maxOccurs="1" />
+              
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

@@ -27,33 +27,36 @@ public class UserService
     private void LoadUsers()
     {
         if (!File.Exists(_filePath))
-        {
             return;
-        }
 
         var doc = XDocument.Load(_filePath);
+
         if (doc.Root != null)
         {
-            _users = doc.Root.Elements("user").Select(x => new User
-            {
-                Username = x.Element("username")?.Value ?? "",
-                PasswordHash = x.Element("passwordHash")?.Value ?? "",
-                Role = x.Element("role")?.Value ?? ""
-            }).ToList();
+            _users = doc.Root.Elements("user")
+                .Select(x => new User
+                {
+                    Id = x.Element("id")?.Value ?? Guid.NewGuid().ToString(),
+                    Username = x.Element("username")?.Value ?? "",
+                    PasswordHash = x.Element("passwordHash")?.Value ?? "",
+                    Role = x.Element("role")?.Value ?? ""
+                })
+                .ToList();
         }
     }
 
     private void EnsureManagerExists()
     {
-        // If there is no manager in the file, create the default one
         if (!_users.Any(u => u.Role == "Manager"))
         {
             var manager = new User
             {
+                Id = Guid.NewGuid().ToString(),
                 Username = "admin",
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword("ManagerPass123!"),
                 Role = "Manager"
             };
+
             _users.Add(manager);
             SaveUsers();
         }
@@ -65,12 +68,14 @@ public class UserService
             new XDeclaration("1.0", "utf-8", "yes"),
             new XElement("users",
                 _users.Select(u => new XElement("user",
+                    new XElement("id", u.Id),
                     new XElement("username", u.Username),
                     new XElement("passwordHash", u.PasswordHash),
                     new XElement("role", u.Role)
                 ))
             )
         );
+
         doc.Save(_filePath);
     }
 
@@ -95,10 +100,10 @@ public class UserService
 
         _users.Add(new User
         {
+            Id = Guid.NewGuid().ToString(),
             Username = username,
-            // Hash the password before saving it to the XML file
             PasswordHash = BCrypt.Net.BCrypt.HashPassword(password),
-            Role = "Salesperson" // Strictly hardcoded per requirements
+            Role = "Salesperson"
         });
 
         // Persist the changes to the XML file immediately

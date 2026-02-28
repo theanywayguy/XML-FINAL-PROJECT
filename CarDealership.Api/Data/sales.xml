@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<sales>
+  <sale id="387fd8c8-3420-4672-8663-f04f2b98ab17">
+    <salesmanId>9c7a081d-0b79-4281-aa3c-17c9483b93d7</salesmanId>
+    <customerId>c1</customerId>
+    <carId>c5</carId>
+    <dateTime>2026-02-28T12:36:28.1369580Z</dateTime>
+    <paymentMethod>Financed</paymentMethod>
+    <price>0.01</price>
+    <car id="c5">
+      <brand>Toyota</brand>
+      <model>Prius</model>
+      <year>2022</year>
+      <price currency="USD">1000.00</price>
+      <engine type="hybrid">Hybrid Synergy Drive</engine>
+      <horsepower>121</horsepower>
+    </car>
+  </sale>
+  <sale id="87ccdb07-3aca-489e-95e9-d6ff65085bdd">
+    <salesmanId>9c7a081d-0b79-4281-aa3c-17c9483b93d7</salesmanId>
+    <customerId>c55</customerId>
+    <carId>c14241</carId>
+    <dateTime>2026-02-28T13:45:31.0970497Z</dateTime>
+    <paymentMethod>Financed</paymentMethod>
+    <price>0.01</price>
+    <car id="c14241">
+      <brand>string</brand>
+      <model>string</model>
+      <year>2012</year>
+      <price currency="string">100000.00</price>
+      <engine type="petrol">Hybrid</engine>
+      <horsepower>1000</horsepower>
+    </car>
+  </sale>
+</sales>

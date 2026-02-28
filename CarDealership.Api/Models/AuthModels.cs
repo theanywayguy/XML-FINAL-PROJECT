@@ -7,8 +7,16 @@ namespace CarDealershipApi.Models;
 /// </summary>
 public class User
 {
+    [XmlElement("id")]
+    public string Id { get; set; } = string.Empty;
+
+    [XmlElement("username")]
     public string Username { get; set; } = string.Empty;
+
+    [XmlElement("passwordHash")]
     public string PasswordHash { get; set; } = string.Empty;
+
+    [XmlElement("role")]
     public string Role { get; set; } = string.Empty;
 }
 
@@ -18,15 +26,9 @@ public class User
 [XmlRoot("LoginRequest")]
 public class LoginRequest
 {
-    /// <summary>
-    /// The user's registered username.
-    /// </summary>
     [XmlElement("username")]
     public string Username { get; set; } = string.Empty;
 
-    /// <summary>
-    /// The user's password.
-    /// </summary>
     [XmlElement("password")]
     public string Password { get; set; } = string.Empty;
 }
@@ -37,15 +39,9 @@ public class LoginRequest
 [XmlRoot("RegisterRequest")]
 public class RegisterRequest
 {
-    /// <summary>
-    /// The desired username for the new account.
-    /// </summary>
     [XmlElement("username")]
     public string Username { get; set; } = string.Empty;
 
-    /// <summary>
-    /// The secure password for the new account.
-    /// </summary>
     [XmlElement("password")]
     public string Password { get; set; } = string.Empty;
 }
@@ -56,15 +52,9 @@ public class RegisterRequest
 [XmlRoot("token")]
 public class TokenResponse
 {
-    /// <summary>
-    /// The JWT Bearer token used to authenticate subsequent API requests.
-    /// </summary>
     [XmlElement("accessToken")]
     public string AccessToken { get; set; } = string.Empty;
 
-    /// <summary>
-    /// The lifetime of the token in seconds.
-    /// </summary>
     [XmlElement("expiresIn")]
     public int ExpiresIn { get; set; }
 }

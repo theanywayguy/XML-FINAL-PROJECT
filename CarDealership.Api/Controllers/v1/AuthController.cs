@@ -69,6 +69,8 @@ public class AuthController : ControllerBase
         {
             Subject = new ClaimsIdentity(new[]
             {
+                // Inject the immutable User ID directly into the token payload securely
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Name, user.Username),
                 new Claim(ClaimTypes.Role, user.Role)
             }),

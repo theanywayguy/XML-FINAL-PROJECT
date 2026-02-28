@@ -1,4 +1,5 @@
 using System.Text;
+using System.Threading.RateLimiting; // Added for Rate Limiter
 using CarDealershipApi.Middleware;
 using CarDealershipApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -137,24 +138,67 @@ builder.Services.AddScoped<XsltTransformationService>();
 // HttpClient: Specialized scoped service for making external web calls
 builder.Services.AddHttpClient<VinIntegrationService>();
 
+// ==========================================
+// 6. SECURITY, HEALTH, & RATE LIMITING
+// ==========================================
+// Health Checks: Provides a simple endpoint to monitor if the API is online
+builder.Services.AddHealthChecks();
+
+// Rate Limiting: Prevents abuse/DDoS by limiting how many requests an IP can make.
+builder.Services.AddRateLimiter(options =>
+{
+    options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
+        RateLimitPartition.GetFixedWindowLimiter(
+            // Partition by the user's IP address
+            partitionKey: httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+            factory: partition => new FixedWindowRateLimiterOptions
+            {
+                AutoReplenishment = true,
+                PermitLimit = 100, // Maximum of 100 requests...
+                QueueLimit = 2,    // Allows 2 requests to queue if they exceed the limit
+                Window = TimeSpan.FromMinutes(1) // ...per 1-minute window
+            }));
+
+    // Return standard XML error format when limit is exceeded
+    options.OnRejected = async (context, token) =>
+    {
+        context.HttpContext.Response.StatusCode = 429;
+        context.HttpContext.Response.ContentType = "application/xml";
+        await context.HttpContext.Response.WriteAsync("<error><code>429</code><message>Too many requests. Please try again later.</message></error>", token);
+    };
+});
+
+
 var app = builder.Build();
 
 // ==========================================
-// 6. HTTP REQUEST PIPELINE (MIDDLEWARE)
+// 7. HTTP REQUEST PIPELINE (MIDDLEWARE)
 // ==========================================
 // Note: The order of these lines is very important!
 
 // Logs every incoming request method, path, and response status
 app.UseSerilogRequestLogging();
 
+// Custom middleware to catch unhandled crashes and return a clean 500 XML error
+app.UseMiddleware<GlobalExceptionMiddleware>();
+
+// ONLY enable Swagger in Development. It is completely hidden in Production environments.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(); // Serves the UI at http://localhost:<port>/swagger
 }
+else
+{
+    // HTTP STRICT TRANSPORT SECURITY (HSTS): Forces browsers to use HTTPS in Production
+    app.UseHsts();
+}
 
-// Custom middleware to catch unhandled crashes and return a clean 500 XML error
-app.UseMiddleware<XmlExceptionMiddleware>();
+// Redirects all standard HTTP traffic to secure HTTPS
+app.UseHttpsRedirection();
+
+// Enables Rate Limiting (Must be placed before Authentication but after Routing)
+app.UseRateLimiter();
 
 // Determines WHO the user is based on their token
 app.UseAuthentication();
@@ -163,6 +207,9 @@ app.UseAuthorization();
 
 // Routes the request to the correct Controller endpoint
 app.MapControllers();
+
+// Maps the health check to a specific URL path
+app.MapHealthChecks("/api/v1/health");
 
 // Starts the application
 app.Run();

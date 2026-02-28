@@ -1,18 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <users>
   <user>
+    <id>f9974087-759d-42a9-a4f3-dfa562437a55</id>
     <username>admin</username>
-    <passwordHash>$2a$11$gEGFaqvRK.9NTH9fpk8anOkUY/Dd/4X4laLTz186lSqWZj5Zsp2n6</passwordHash>
+    <passwordHash>$2a$11$BUQFbFIegg0Y1znRzhB51.mnCQSCFTGKc5/1/GkRg8g5d5IFDjdPa</passwordHash>
     <role>Manager</role>
   </user>
   <user>
-    <username>John</username>
-    <passwordHash>$2a$11$hmx/XXL0rjL9HXlFoTWLA.G5Kb9MMi3ipghXYlg8dtvIpNTZsdFxK</passwordHash>
-    <role>Salesperson</role>
-  </user>
-  <user>
+    <id>9c7a081d-0b79-4281-aa3c-17c9483b93d7</id>
     <username>Janine</username>
-    <passwordHash>$2a$11$kUrjLvYI1B5j7FjkqRdmk.LrKMj0ITSRVDx7bd/9CFF76vYPy13Tq</passwordHash>
+    <passwordHash>$2a$11$3X2/UopNRiI.s80S7191weGyiTlXSHA4M3z/3J1.EQ9mzAh9DRom6</passwordHash>
     <role>Salesperson</role>
   </user>
 </users>

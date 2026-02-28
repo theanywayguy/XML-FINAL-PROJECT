@@ -8,15 +8,35 @@ public class XsdValidationService
     private readonly string _dealershipSchemaPath;
     private readonly string _dealershipXmlPath;
 
+    // Add paths for the sales files
+    private readonly string _salesSchemaPath;
+    private readonly string _salesXmlPath;
+
     public XsdValidationService(IWebHostEnvironment env)
     {
         _dealershipSchemaPath = Path.Combine(env.ContentRootPath, "Data", "schema.xsd");
         _dealershipXmlPath = Path.Combine(env.ContentRootPath, "Data", "dealership.xml");
+
+        // Map the new sales files in the Data folder
+        _salesSchemaPath = Path.Combine(env.ContentRootPath, "Data", "sales.xsd");
+        _salesXmlPath = Path.Combine(env.ContentRootPath, "Data", "sales.xml");
     }
 
     public List<string> ValidateDealershipXml()
     {
         return ValidateXmlFile(_dealershipXmlPath, _dealershipSchemaPath);
+    }
+
+    /// <summary>
+    /// Validates the sales.xml file. If it doesn't exist yet, returns no errors.
+    /// </summary>
+    public List<string> ValidateSalesXml()
+    {
+        // If the file hasn't been created yet (no sales made), there's nothing to validate!
+        if (!File.Exists(_salesXmlPath)) return new List<string>();
+
+        // Reuse your excellent helper method
+        return ValidateXmlFile(_salesXmlPath, _salesSchemaPath);
     }
 
     public List<string> ValidateXmlFile(string xmlFilePath, string schemaFilePath)
