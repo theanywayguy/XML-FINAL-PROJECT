@@ -32,4 +32,36 @@
       <horsepower>1000</horsepower>
     </car>
   </sale>
+  <sale id="545bc767-8eb4-498c-abca-7066baf6def2">
+    <salesmanId>215d69f2-8052-4a95-a703-5d93a6aa2c98</salesmanId>
+    <customerId>vvvv</customerId>
+    <carId>c1GTEC19PXRE500038</carId>
+    <dateTime>2026-03-01T07:48:44.4446011Z</dateTime>
+    <paymentMethod>Cash</paymentMethod>
+    <price>1999.95</price>
+    <car id="c1GTEC19PXRE500038">
+      <brand>GMC</brand>
+      <model>Sierra</model>
+      <year>1994</year>
+      <price currency="TRY">20000.00</price>
+      <engine type="diesel">Diesel</engine>
+      <horsepower>120</horsepower>
+    </car>
+  </sale>
+  <sale id="35f607fa-334c-496c-a6f9-c09ced57b78c">
+    <salesmanId>215d69f2-8052-4a95-a703-5d93a6aa2c98</salesmanId>
+    <customerId>c77</customerId>
+    <carId>c7</carId>
+    <dateTime>2026-03-01T07:49:53.6663898Z</dateTime>
+    <paymentMethod>Cash</paymentMethod>
+    <price>521.98</price>
+    <car id="c7">
+      <brand>Audi</brand>
+      <model>A4</model>
+      <year>2020</year>
+      <price currency="USD">39000</price>
+      <engine type="petrol">Turbo 4</engine>
+      <horsepower>201</horsepower>
+    </car>
+  </sale>
 </sales>

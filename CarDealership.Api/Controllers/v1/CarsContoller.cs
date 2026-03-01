@@ -83,12 +83,15 @@ public class CarsController : ControllerBase
 
     /// <summary>
     /// Adds a new car to the inventory and strictly validates it against the XML Schema.
+    /// Requires Manager role.
     /// </summary>
     /// <param name="car">The car XML payload.</param>
     /// <response code="201">Returns the newly created car.</response>
     /// <response code="400">If the XML payload is invalid or breaks XSD rules.</response>
+    /// <response code="403">If the user does not have Manager privileges.</response>
     /// <response code="500">If there is an internal server error.</response>
     [HttpPost]
+    [Authorize(Roles = "Manager")] // Restricts creation to Managers only
     [Consumes("application/xml")]
     [ProducesResponseType(typeof(Car), 201)]
     [ProducesResponseType(typeof(XmlError), 400)]
@@ -130,14 +133,17 @@ public class CarsController : ControllerBase
 
     /// <summary>
     /// Updates the price of an existing car in the inventory.
+    /// Requires Manager role.
     /// </summary>
     /// <param name="id">The unique ID (VIN) of the car.</param>
     /// <param name="update">The new price value payload.</param>
     /// <response code="200">If the update was successful.</response>
     /// <response code="400">If the price payload is invalid or breaks XSD rules.</response>
+    /// <response code="403">If the user does not have Manager privileges.</response>
     /// <response code="404">If the car is not found.</response>
     /// <response code="500">If there is an internal server error.</response>
     [HttpPut("{id}")]
+    [Authorize(Roles = "Manager")] // Restricts price updates to Managers only
     [Consumes("application/xml")]
     [ProducesResponseType(200)]
     [ProducesResponseType(typeof(XmlError), 400)]
@@ -172,12 +178,15 @@ public class CarsController : ControllerBase
 
     /// <summary>
     /// Removes a car from the inventory.
+    /// Requires Manager role.
     /// </summary>
     /// <param name="id">The unique ID (VIN) of the car.</param>
     /// <response code="200">If the deletion was successful.</response>
+    /// <response code="403">If the user does not have Manager privileges.</response>
     /// <response code="404">If the car is not found.</response>
     /// <response code="500">If there is an internal server error.</response>
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Manager")] // Restricts deletion to Managers only
     [ProducesResponseType(200)]
     [ProducesResponseType(typeof(XmlError), 404)]
     [ProducesResponseType(typeof(XmlError), 500)]

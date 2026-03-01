@@ -12,4 +12,10 @@
     <passwordHash>$2a$11$3X2/UopNRiI.s80S7191weGyiTlXSHA4M3z/3J1.EQ9mzAh9DRom6</passwordHash>
     <role>Salesperson</role>
   </user>
+  <user>
+    <id>215d69f2-8052-4a95-a703-5d93a6aa2c98</id>
+    <username>Joe</username>
+    <passwordHash>$2a$11$1CvpKfiwOMC3VZPhn23cAOPt9FBLhMWGIc0dn6BIlE3Ws8N6yOlKq</passwordHash>
+    <role>Salesperson</role>
+  </user>
 </users>

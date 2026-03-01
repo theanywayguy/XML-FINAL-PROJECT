@@ -1,38 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dealership>
   <cars>
-    <car id="c2">
-      <brand>Honda</brand>
-      <model>Civic</model>
-      <year>2021</year>
-      <price currency="USD">220000.00</price>
-      <engine type="petrol">Inline 4</engine>
-      <horsepower>158</horsepower>
-    </car>
-    <car id="c6">
-      <brand>BMW</brand>
-      <model>X5</model>
-      <year>2021</year>
-      <price currency="USD">60000</price>
-      <engine type="diesel">Inline 6</engine>
-      <horsepower>261</horsepower>
-    </car>
-    <car id="c7">
-      <brand>Audi</brand>
-      <model>A4</model>
-      <year>2020</year>
-      <price currency="USD">39000</price>
-      <engine type="petrol">Turbo 4</engine>
-      <horsepower>201</horsepower>
-    </car>
-    <car id="c8">
-      <brand>Mercedes</brand>
-      <model>C-Class</model>
-      <year>2022</year>
-      <price currency="USD">43000</price>
-      <engine type="hybrid">Mild Hybrid</engine>
-      <horsepower>255</horsepower>
-    </car>
     <car id="c9">
       <brand>Nissan</brand>
       <model>Leaf</model>
@@ -169,14 +137,6 @@
       <engine type="diesel">Turbo Diesel</engine>
       <horsepower>261</horsepower>
     </car>
-    <car id="string">
-      <brand>vvvvv</brand>
-      <model>strvvving</model>
-      <year>2012</year>
-      <price currency="stusdring">444</price>
-      <engine type="petrol">strinvg</engine>
-      <horsepower>100</horsepower>
-    </car>
     <car id="c3">
       <brand>Ford</brand>
       <model>Mustang</model>
@@ -185,13 +145,13 @@
       <engine type="petrol">V8</engine>
       <horsepower>450</horsepower>
     </car>
-    <car id="c142421">
-      <brand>string</brand>
-      <model>string</model>
-      <year>2012</year>
-      <price currency="string">100</price>
-      <engine type="petrol">Hybrid</engine>
-      <horsepower>1000</horsepower>
+    <car id="c8">
+      <brand>Mercedes</brand>
+      <model>C-Class</model>
+      <year>2022</year>
+      <price currency="USD">43000</price>
+      <engine type="hybrid">Mild Hybrid</engine>
+      <horsepower>255</horsepower>
     </car>
   </cars>
 </dealership>
