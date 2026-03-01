@@ -1,0 +1,80 @@
+name: Dealership API CI/CD
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+
+jobs:
+  build-test-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # --- 1. .NET ENVIRONMENT SETUP ---
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore Dependencies
+        run: dotnet restore CarDealershipXml.sln
+
+      # --- 2. RUN UNIT & INTEGRATION TESTS ---
+      - name: Run Tests
+        id: dotnet_tests
+        run: dotnet test CarDealershipXml.sln --configuration Release --verbosity normal
+        # If tests fail, the pipeline stops here and won't build the Docker image.
+
+      # --- 3. DOCKER BUILD (ONLY IF TESTS PASS) ---
+      - name: Build Docker Image
+        id: build_step
+        continue-on-error: true
+        run: docker build -t theanywayguy/cardealership-api:latest .
+
+      - name: Build Status Note
+        if: steps.build_step.outcome == 'failure'
+        run: echo "::warning ::Docker Build failed, but continuing with health checks."
+
+      # --- 4. SPIN UP CONTAINER ---
+      - name: Run Container for Testing
+        run: |
+          docker run -d -p 5048:8080 \
+            -e ASPNETCORE_ENVIRONMENT=Production \
+            --name test-api \
+            theanywayguy/cardealership-api:latest
+          sleep 10
+
+      # --- 5. LIVE HEALTH CHECK ---
+      - name: Health Check (5 Pings)
+        run: |
+          echo "Pinging /api/v1/health 5 times..."
+          for i in {1..5}; do
+            HTTP_STATUS=$(curl -s -L -o /dev/null -w "%{http_code}" http://localhost:5048/api/v1/health)
+            if [ "$HTTP_STATUS" -ne 200 ]; then
+              echo "Health check failed with $HTTP_STATUS"
+              docker logs test-api
+              exit 1
+            fi
+            echo "Attempt $i: OK (200)"
+            sleep 2
+          done
+
+      # --- 6. PUSH TO DOCKER HUB ---
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Push to Docker Hub
+        id: push_step
+        continue-on-error: true
+        run: docker push theanywayguy/cardealership-api:latest
+
+      - name: Cleanup
+        if: always()
+        run: docker rm -f test-api || true

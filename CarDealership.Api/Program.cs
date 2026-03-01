@@ -220,3 +220,6 @@ app.MapFallbackToFile("index.html");
 
 // Starts the application
 app.Run();
+
+// Needed for testing
+public partial class Program { }
