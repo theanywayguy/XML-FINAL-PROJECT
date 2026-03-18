@@ -1,157 +1,325 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dealership>
   <cars>
-    <car id="c9">
-      <brand>Nissan</brand>
-      <model>Leaf</model>
+        <car id="1HGCM82633A123457">
+      <brand>Tesla</brand>
+      <model>Model 3</model>
+      <year>2022</year>
+      <price currency="USD">42000</price>
+      <engine type="electric">Single Motor</engine>
+      <horsepower>283</horsepower>
+    </car>
+    <car id="2FTRX18W1XCA12345">
+      <brand>Ford</brand>
+      <model>Explorer</model>
       <year>2021</year>
-      <price currency="USD">30000</price>
-      <engine type="electric">AC Synchronous</engine>
-      <horsepower>147</horsepower>
+      <price currency="USD">36000</price>
+      <engine type="petrol">Inline 4 Turbo</engine>
+      <horsepower>300</horsepower>
     </car>
-    <car id="c10">
-      <brand>Chevrolet</brand>
-      <model>Silverado</model>
-      <year>2018</year>
-      <price currency="USD">40000</price>
-      <engine type="diesel">V8 Duramax</engine>
-      <horsepower>445</horsepower>
+    <car id="3VWFE21C04M000001">
+      <brand>Volkswagen</brand>
+      <model>Passat</model>
+      <year>2020</year>
+      <price currency="USD">25000</price>
+      <engine type="petrol">Turbo 4</engine>
+      <horsepower>174</horsepower>
     </car>
-    <car id="c11">
+    <car id="5YJSA1E26HF000316">
+      <brand>Tesla</brand>
+      <model>Model S</model>
+      <year>2019</year>
+      <price currency="USD">75000</price>
+      <engine type="electric">Dual Motor</engine>
+      <horsepower>518</horsepower>
+    </car>
+    <car id="JHMFA16586S000002">
+      <brand>Honda</brand>
+      <model>Civic</model>
+      <year>2021</year>
+      <price currency="USD">22000</price>
+      <engine type="petrol">Inline 4</engine>
+      <horsepower>158</horsepower>
+    </car>
+    <car id="KM8J33AL5LU000003">
       <brand>Hyundai</brand>
-      <model>Elantra</model>
-      <year>2023</year>
+      <model>Tucson</model>
+      <year>2022</year>
+      <price currency="USD">28000</price>
+      <engine type="hybrid">Hybrid 4</engine>
+      <horsepower>226</horsepower>
+    </car>
+    <car id="WBA8E9C59GK000004">
+      <brand>BMW</brand>
+      <model>X3</model>
+      <year>2021</year>
+      <price currency="USD">43000</price>
+      <engine type="petrol">Turbo 4</engine>
+      <horsepower>248</horsepower>
+    </car>
+    <car id="WAUZZZ8K9DA000005">
+      <brand>Audi</brand>
+      <model>A4</model>
+      <year>2020</year>
+      <price currency="USD">39000</price>
+      <engine type="diesel">Turbo Diesel</engine>
+      <horsepower>201</horsepower>
+    </car>
+    <car id="JN1AZ4EH8FM000006">
+      <brand>Nissan</brand>
+      <model>Altima</model>
+      <year>2019</year>
+      <price currency="USD">24000</price>
+      <engine type="petrol">Inline 4</engine>
+      <horsepower>188</horsepower>
+    </car>
+    <car id="1C4RJFAG0FC000007">
+      <brand>Jeep</brand>
+      <model>Grand Cherokee</model>
+      <year>2021</year>
+      <price currency="USD">41000</price>
+      <engine type="petrol">V6</engine>
+      <horsepower>293</horsepower>
+    </car>
+    <car id="2HKRW2H59KH000008">
+      <brand>Honda</brand>
+      <model>CR-V</model>
+      <year>2022</year>
+      <price currency="USD">30000</price>
+      <engine type="hybrid">Hybrid 4</engine>
+      <horsepower>204</horsepower>
+    </car>
+    <car id="3N1AB7AP4KY000009">
+      <brand>Nissan</brand>
+      <model>Sentra</model>
+      <year>2021</year>
       <price currency="USD">21000</price>
       <engine type="petrol">Inline 4</engine>
-      <horsepower>147</horsepower>
+      <horsepower>149</horsepower>
     </car>
-    <car id="c12">
-      <brand>Kia</brand>
-      <model>Sorento</model>
-      <year>2022</year>
-      <price currency="USD">32000</price>
-      <engine type="hybrid">Turbo Hybrid</engine>
-      <horsepower>227</horsepower>
-    </car>
-    <car id="c13">
-      <brand>Volkswagen</brand>
-      <model>Golf</model>
-      <year>2019</year>
+    <car id="5NPE24AF4FH000010">
+      <brand>Hyundai</brand>
+      <model>Sonata</model>
+      <year>2020</year>
       <price currency="USD">23000</price>
-      <engine type="petrol">Turbo 4</engine>
-      <horsepower>147</horsepower>
+      <engine type="petrol">Inline 4</engine>
+      <horsepower>191</horsepower>
     </car>
-    <car id="c14">
-      <brand>Subaru</brand>
-      <model>Outback</model>
+    <car id="WDDGF8AB1EA000011">
+      <brand>Mercedes</brand>
+      <model>E-Class</model>
       <year>2021</year>
+      <price currency="USD">54000</price>
+      <engine type="hybrid">Mild Hybrid</engine>
+      <horsepower>362</horsepower>
+    </car>
+    <car id="4T1BF1FK5HU000012">
+      <brand>Toyota</brand>
+      <model>Camry</model>
+      <year>2022</year>
       <price currency="USD">27000</price>
+      <engine type="petrol">Inline 4</engine>
+      <horsepower>203</horsepower>
+    </car>
+    <car id="1FTFW1E50JFA00013">
+      <brand>Ford</brand>
+      <model>Ranger</model>
+      <year>2021</year>
+      <price currency="USD">35000</price>
+      <engine type="diesel">Turbo Diesel</engine>
+      <horsepower>270</horsepower>
+    </car>
+    <car id="3FA6P0H72JR000014">
+      <brand>Ford</brand>
+      <model>Fusion</model>
+      <year>2020</year>
+      <price currency="USD">24000</price>
+      <engine type="hybrid">Hybrid 4</engine>
+      <horsepower>188</horsepower>
+    </car>
+    <car id="1N4BL4EV6LC000015">
+      <brand>Nissan</brand>
+      <model>Maxima</model>
+      <year>2022</year>
+      <price currency="USD">37000</price>
+      <engine type="petrol">V6</engine>
+      <horsepower>300</horsepower>
+    </car>
+    <car id="WA1BNAFY4J2000016">
+      <brand>Audi</brand>
+      <model>Q7</model>
+      <year>2021</year>
+      <price currency="USD">60000</price>
+      <engine type="petrol">V6 Turbo</engine>
+      <horsepower>335</horsepower>
+    </car>
+    <car id="5UXWX7C5XBA000017">
+      <brand>BMW</brand>
+      <model>X5</model>
+      <year>2022</year>
+      <price currency="USD">65000</price>
+      <engine type="hybrid">Plug-in Hybrid</engine>
+      <horsepower>389</horsepower>
+    </car>
+    <car id="JN8AT2MV5LW000018">
+      <brand>Nissan</brand>
+      <model>Rogue</model>
+      <year>2021</year>
+      <price currency="USD">28000</price>
+      <engine type="petrol">Inline 4</engine>
+      <horsepower>181</horsepower>
+    </car>
+    <car id="KMHD84LF8HU000019">
+      <brand>Hyundai</brand>
+      <model>Veloster</model>
+      <year>2020</year>
+      <price currency="USD">22000</price>
+      <engine type="petrol">Turbo 4</engine>
+      <horsepower>201</horsepower>
+    </car>
+    <car id="2C3CDZAG1HH000020">
+      <brand>Dodge</brand>
+      <model>Charger</model>
+      <year>2021</year>
+      <price currency="USD">33000</price>
+      <engine type="petrol">V6</engine>
+      <horsepower>292</horsepower>
+    </car>
+    <car id="1G1ZD5ST5JF000021">
+      <brand>Chevrolet</brand>
+      <model>Malibu</model>
+      <year>2022</year>
+      <price currency="USD">25000</price>
+      <engine type="petrol">Turbo 4</engine>
+      <horsepower>160</horsepower>
+    </car>
+    <car id="1HGCV1F30JA000022">
+      <brand>Honda</brand>
+      <model>Insight</model>
+      <year>2021</year>
+      <price currency="USD">26000</price>
+      <engine type="hybrid">Hybrid 4</engine>
+      <horsepower>151</horsepower>
+    </car>
+    <car id="4S4BSENC6J3000023">
+      <brand>Subaru</brand>
+      <model>Forester</model>
+      <year>2022</year>
+      <price currency="USD">29000</price>
       <engine type="petrol">Boxer 4</engine>
       <horsepower>182</horsepower>
     </car>
-    <car id="c15">
+    <car id="JM3KFBDM8K000024">
       <brand>Mazda</brand>
-      <model>CX-5</model>
-      <year>2022</year>
-      <price currency="USD">26000</price>
+      <model>Mazda3</model>
+      <year>2021</year>
+      <price currency="USD">23000</price>
       <engine type="petrol">Inline 4</engine>
-      <horsepower>187</horsepower>
+      <horsepower>186</horsepower>
     </car>
-    <car id="c16">
-      <brand>Porsche</brand>
-      <model>Taycan</model>
-      <year>2023</year>
-      <price currency="USD">85000</price>
-      <engine type="electric">Dual Motor</engine>
-      <horsepower>402</horsepower>
-    </car>
-    <car id="c17">
+    <car id="YV4102WK5L1000025">
       <brand>Volvo</brand>
-      <model>XC90</model>
-      <year>2021</year>
-      <price currency="USD">55000</price>
-      <engine type="hybrid">Plug-in Hybrid</engine>
-      <horsepower>400</horsepower>
+      <model>S60</model>
+      <year>2022</year>
+      <price currency="USD">42000</price>
+      <engine type="hybrid">Mild Hybrid</engine>
+      <horsepower>295</horsepower>
     </car>
-    <car id="c18">
+    <car id="JTHBK1GG8F2000026">
       <brand>Lexus</brand>
-      <model>RX</model>
-      <year>2020</year>
-      <price currency="USD">45000</price>
-      <engine type="hybrid">V6 Hybrid</engine>
-      <horsepower>308</horsepower>
-    </car>
-    <car id="c19">
-      <brand>Jeep</brand>
-      <model>Wrangler</model>
-      <year>2019</year>
-      <price currency="USD">35000</price>
-      <engine type="petrol">V6</engine>
-      <horsepower>285</horsepower>
-    </car>
-    <car id="c20">
-      <brand>Ford</brand>
-      <model>F-150 Lightning</model>
-      <year>2023</year>
-      <price currency="USD">50000</price>
-      <engine type="electric">Dual Motor</engine>
-      <horsepower>452</horsepower>
-    </car>
-    <car id="c21">
-      <brand>Toyota</brand>
-      <model>RAV4</model>
+      <model>ES</model>
       <year>2021</year>
-      <price currency="USD">28000</price>
-      <engine type="hybrid">Hybrid 4</engine>
-      <horsepower>219</horsepower>
-    </car>
-    <car id="c22">
-      <brand>Honda</brand>
-      <model>Accord</model>
-      <year>2022</year>
-      <price currency="USD">26000</price>
-      <engine type="petrol">Turbo 4</engine>
-      <horsepower>192</horsepower>
-    </car>
-    <car id="c23">
-      <brand>Chevrolet</brand>
-      <model>Bolt</model>
-      <year>2023</year>
-      <price currency="USD">26500</price>
-      <engine type="electric">Single Motor</engine>
-      <horsepower>200</horsepower>
-    </car>
-    <car id="c24">
-      <brand>BMW</brand>
-      <model>3 Series</model>
-      <year>2020</year>
       <price currency="USD">41000</price>
-      <engine type="petrol">Turbo 4</engine>
-      <horsepower>255</horsepower>
+      <engine type="hybrid">Hybrid 4</engine>
+      <horsepower>215</horsepower>
     </car>
-    <car id="c25">
-      <brand>Audi</brand>
-      <model>Q5</model>
+    <car id="1C6RR7LT6KS000027">
+      <brand>Ram</brand>
+      <model>1500</model>
       <year>2022</year>
-      <price currency="USD">44000</price>
-      <engine type="diesel">Turbo Diesel</engine>
-      <horsepower>261</horsepower>
+      <price currency="USD">48000</price>
+      <engine type="diesel">EcoDiesel V6</engine>
+      <horsepower>260</horsepower>
     </car>
-    <car id="c3">
-      <brand>Ford</brand>
-      <model>Mustang</model>
-      <year>2019</year>
+    <car id="KNAGM4AD9H5000028">
+      <brand>Kia</brand>
+      <model>Optima</model>
+      <year>2020</year>
+      <price currency="USD">24000</price>
+      <engine type="petrol">Inline 4</engine>
+      <horsepower>185</horsepower>
+    </car>
+    <car id="5TDYZ3DC7KS000029">
+      <brand>Toyota</brand>
+      <model>Highlander</model>
+      <year>2021</year>
       <price currency="USD">35000</price>
-      <engine type="petrol">V8</engine>
-      <horsepower>450</horsepower>
+      <engine type="hybrid">V6 Hybrid</engine>
+      <horsepower>243</horsepower>
     </car>
-    <car id="c8">
-      <brand>Mercedes</brand>
-      <model>C-Class</model>
+    <car id="2HGFC2F69KH000030">
+      <brand>Honda</brand>
+      <model>Fit</model>
+      <year>2019</year>
+      <price currency="USD">18000</price>
+      <engine type="petrol">Inline 4</engine>
+      <horsepower>130</horsepower>
+    </car>
+    <car id="3CZRU6H59KM000031">
+      <brand>Honda</brand>
+      <model>HR-V</model>
       <year>2022</year>
-      <price currency="USD">43000</price>
+      <price currency="USD">24000</price>
+      <engine type="petrol">Inline 4</engine>
+      <horsepower>158</horsepower>
+    </car>
+    <car id="JN1EV7AP7HM000032">
+      <brand>Infiniti</brand>
+      <model>Q50</model>
+      <year>2021</year>
+      <price currency="USD">37000</price>
+      <engine type="petrol">V6 Twin Turbo</engine>
+      <horsepower>300</horsepower>
+    </car>
+    <car id="WDC0G4JB0HF000033">
+      <brand>Mercedes</brand>
+      <model>GLC</model>
+      <year>2022</year>
+      <price currency="USD">45000</price>
       <engine type="hybrid">Mild Hybrid</engine>
       <horsepower>255</horsepower>
+    </car>
+    <car id="WAUFNAF49JN000034">
+      <brand>Audi</brand>
+      <model>A6</model>
+      <year>2021</year>
+      <price currency="USD">55000</price>
+      <engine type="petrol">V6 Turbo</engine>
+      <horsepower>335</horsepower>
+    </car>
+    <car id="5YJYGDEE9LF000035">
+      <brand>Tesla</brand>
+      <model>Model Y</model>
+      <year>2023</year>
+      <price currency="USD">48000</price>
+      <engine type="electric">Dual Motor</engine>
+      <horsepower>384</horsepower>
+    </car>
+    <car id="1FTBR1C89LKA00036">
+      <brand>Ford</brand>
+      <model>Transit</model>
+      <year>2022</year>
+      <price currency="USD">39000</price>
+      <engine type="diesel">Turbo Diesel</engine>
+      <horsepower>275</horsepower>
+    </car>
+    <car id="3N6CM0KN2FK000037">
+      <brand>Nissan</brand>
+      <model>NV200</model>
+      <year>2020</year>
+      <price currency="USD">26000</price>
+      <engine type="petrol">Inline 4</engine>
+      <horsepower>131</horsepower>
     </car>
   </cars>
 </dealership>

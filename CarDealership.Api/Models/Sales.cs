@@ -74,3 +74,31 @@ public class SaleResponse
     [XmlElement("saleId")]
     public string SaleId { get; set; } = string.Empty;
 }
+
+
+/// <summary>Represents a single key/count pair for aggregation results.</summary>
+[XmlRoot("Entry")]
+public class SalesCountEntry
+{
+    [XmlElement("key")]
+    public string Key { get; set; } = string.Empty;
+
+    [XmlElement("count")]
+    public int Count { get; set; }
+}
+
+/// <summary>XML-serializable list wrapper for a collection of SalesCountEntry items.</summary>
+[XmlRoot("Entries")]
+public class SalesCountList
+{
+    [XmlElement("entry")]
+    public List<SalesCountEntry> Items { get; set; } = new();
+}
+
+/// <summary>XML-serializable wrapper for a single integer value.</summary>
+[XmlRoot("Result")]
+public class IntResult
+{
+    [XmlElement("value")]
+    public int Value { get; set; }
+}
