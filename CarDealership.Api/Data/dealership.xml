@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <dealership>
   <cars>
-        <car id="1HGCM82633A123457">
+    <car id="AHGCM82633A123457">
       <brand>Tesla</brand>
       <model>Model 3</model>
       <year>2022</year>
@@ -9,7 +9,7 @@
       <engine type="electric">Single Motor</engine>
       <horsepower>283</horsepower>
     </car>
-    <car id="2FTRX18W1XCA12345">
+    <car id="AFTRX18W1XCA12345">
       <brand>Ford</brand>
       <model>Explorer</model>
       <year>2021</year>
@@ -17,7 +17,7 @@
       <engine type="petrol">Inline 4 Turbo</engine>
       <horsepower>300</horsepower>
     </car>
-    <car id="3VWFE21C04M000001">
+    <car id="AVWFE21C04M000001">
       <brand>Volkswagen</brand>
       <model>Passat</model>
       <year>2020</year>
@@ -25,7 +25,7 @@
       <engine type="petrol">Turbo 4</engine>
       <horsepower>174</horsepower>
     </car>
-    <car id="5YJSA1E26HF000316">
+    <car id="AYJSA1E26HF000316">
       <brand>Tesla</brand>
       <model>Model S</model>
       <year>2019</year>
@@ -73,7 +73,7 @@
       <engine type="petrol">Inline 4</engine>
       <horsepower>188</horsepower>
     </car>
-    <car id="1C4RJFAG0FC000007">
+    <car id="AC4RJFAG0FC000007">
       <brand>Jeep</brand>
       <model>Grand Cherokee</model>
       <year>2021</year>
@@ -81,7 +81,7 @@
       <engine type="petrol">V6</engine>
       <horsepower>293</horsepower>
     </car>
-    <car id="2HKRW2H59KH000008">
+    <car id="AHKRW2H59KH000008">
       <brand>Honda</brand>
       <model>CR-V</model>
       <year>2022</year>
@@ -89,7 +89,7 @@
       <engine type="hybrid">Hybrid 4</engine>
       <horsepower>204</horsepower>
     </car>
-    <car id="3N1AB7AP4KY000009">
+    <car id="AN1AB7AP4KY000009">
       <brand>Nissan</brand>
       <model>Sentra</model>
       <year>2021</year>
@@ -97,7 +97,7 @@
       <engine type="petrol">Inline 4</engine>
       <horsepower>149</horsepower>
     </car>
-    <car id="5NPE24AF4FH000010">
+    <car id="ANPE24AF4FH000010">
       <brand>Hyundai</brand>
       <model>Sonata</model>
       <year>2020</year>
@@ -113,7 +113,7 @@
       <engine type="hybrid">Mild Hybrid</engine>
       <horsepower>362</horsepower>
     </car>
-    <car id="4T1BF1FK5HU000012">
+    <car id="AT1BF1FK5HU000012">
       <brand>Toyota</brand>
       <model>Camry</model>
       <year>2022</year>
@@ -121,7 +121,7 @@
       <engine type="petrol">Inline 4</engine>
       <horsepower>203</horsepower>
     </car>
-    <car id="1FTFW1E50JFA00013">
+    <car id="AFTFW1E50JFA00013">
       <brand>Ford</brand>
       <model>Ranger</model>
       <year>2021</year>
@@ -129,7 +129,7 @@
       <engine type="diesel">Turbo Diesel</engine>
       <horsepower>270</horsepower>
     </car>
-    <car id="3FA6P0H72JR000014">
+    <car id="AFA6P0H72JR000014">
       <brand>Ford</brand>
       <model>Fusion</model>
       <year>2020</year>
@@ -137,7 +137,7 @@
       <engine type="hybrid">Hybrid 4</engine>
       <horsepower>188</horsepower>
     </car>
-    <car id="1N4BL4EV6LC000015">
+    <car id="AN4BL4EV6LC000015">
       <brand>Nissan</brand>
       <model>Maxima</model>
       <year>2022</year>
@@ -153,7 +153,7 @@
       <engine type="petrol">V6 Turbo</engine>
       <horsepower>335</horsepower>
     </car>
-    <car id="5UXWX7C5XBA000017">
+    <car id="AYUXWX7C5XBA000017">
       <brand>BMW</brand>
       <model>X5</model>
       <year>2022</year>
@@ -177,7 +177,7 @@
       <engine type="petrol">Turbo 4</engine>
       <horsepower>201</horsepower>
     </car>
-    <car id="2C3CDZAG1HH000020">
+    <car id="AC3CDZAG1HH000020">
       <brand>Dodge</brand>
       <model>Charger</model>
       <year>2021</year>
@@ -185,7 +185,7 @@
       <engine type="petrol">V6</engine>
       <horsepower>292</horsepower>
     </car>
-    <car id="1G1ZD5ST5JF000021">
+    <car id="AG1ZD5ST5JF000021">
       <brand>Chevrolet</brand>
       <model>Malibu</model>
       <year>2022</year>
@@ -193,7 +193,7 @@
       <engine type="petrol">Turbo 4</engine>
       <horsepower>160</horsepower>
     </car>
-    <car id="1HGCV1F30JA000022">
+    <car id="AHGCV1F30JA000022">
       <brand>Honda</brand>
       <model>Insight</model>
       <year>2021</year>
@@ -201,7 +201,7 @@
       <engine type="hybrid">Hybrid 4</engine>
       <horsepower>151</horsepower>
     </car>
-    <car id="4S4BSENC6J3000023">
+    <car id="AS4BSENC6J3000023">
       <brand>Subaru</brand>
       <model>Forester</model>
       <year>2022</year>
@@ -209,7 +209,7 @@
       <engine type="petrol">Boxer 4</engine>
       <horsepower>182</horsepower>
     </car>
-    <car id="JM3KFBDM8K000024">
+    <car id="AJM3KFBDM8K000024">
       <brand>Mazda</brand>
       <model>Mazda3</model>
       <year>2021</year>
@@ -217,7 +217,7 @@
       <engine type="petrol">Inline 4</engine>
       <horsepower>186</horsepower>
     </car>
-    <car id="YV4102WK5L1000025">
+    <car id="AYV4102WK5L1000025">
       <brand>Volvo</brand>
       <model>S60</model>
       <year>2022</year>
@@ -233,7 +233,7 @@
       <engine type="hybrid">Hybrid 4</engine>
       <horsepower>215</horsepower>
     </car>
-    <car id="1C6RR7LT6KS000027">
+    <car id="AC6RR7LT6KS000027">
       <brand>Ram</brand>
       <model>1500</model>
       <year>2022</year>
@@ -249,7 +249,7 @@
       <engine type="petrol">Inline 4</engine>
       <horsepower>185</horsepower>
     </car>
-    <car id="5TDYZ3DC7KS000029">
+    <car id="AYTDYZ3DC7KS000029">
       <brand>Toyota</brand>
       <model>Highlander</model>
       <year>2021</year>
@@ -257,7 +257,7 @@
       <engine type="hybrid">V6 Hybrid</engine>
       <horsepower>243</horsepower>
     </car>
-    <car id="2HGFC2F69KH000030">
+    <car id="AHGFC2F69KH000030">
       <brand>Honda</brand>
       <model>Fit</model>
       <year>2019</year>
@@ -265,7 +265,7 @@
       <engine type="petrol">Inline 4</engine>
       <horsepower>130</horsepower>
     </car>
-    <car id="3CZRU6H59KM000031">
+    <car id="ACZRU6H59KM000031">
       <brand>Honda</brand>
       <model>HR-V</model>
       <year>2022</year>
@@ -297,7 +297,7 @@
       <engine type="petrol">V6 Turbo</engine>
       <horsepower>335</horsepower>
     </car>
-    <car id="5YJYGDEE9LF000035">
+    <car id="AYJYGDEE9LF000035">
       <brand>Tesla</brand>
       <model>Model Y</model>
       <year>2023</year>
@@ -305,7 +305,7 @@
       <engine type="electric">Dual Motor</engine>
       <horsepower>384</horsepower>
     </car>
-    <car id="1FTBR1C89LKA00036">
+    <car id="AFTBR1C89LKA00036">
       <brand>Ford</brand>
       <model>Transit</model>
       <year>2022</year>
@@ -313,13 +313,21 @@
       <engine type="diesel">Turbo Diesel</engine>
       <horsepower>275</horsepower>
     </car>
-    <car id="3N6CM0KN2FK000037">
+    <car id="AN6CM0KN2FK000037">
       <brand>Nissan</brand>
       <model>NV200</model>
       <year>2020</year>
       <price currency="USD">26000</price>
       <engine type="petrol">Inline 4</engine>
       <horsepower>131</horsepower>
+    </car>
+    <car id="JYA3AWN06JC621082">
+      <brand>string</brand>
+      <model>string</model>
+      <year>2030</year>
+      <price currency="string">2000</price>
+      <engine type="petrol">string</engine>
+      <horsepower>2000</horsepower>
     </car>
   </cars>
 </dealership>
