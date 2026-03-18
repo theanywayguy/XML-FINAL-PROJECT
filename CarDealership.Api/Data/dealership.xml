@@ -153,7 +153,7 @@
       <engine type="petrol">V6 Turbo</engine>
       <horsepower>335</horsepower>
     </car>
-    <car id="AYUXWX7C5XBA000017">
+    <car id="AYUXWX7C5XBA00007">
       <brand>BMW</brand>
       <model>X5</model>
       <year>2022</year>
@@ -217,7 +217,7 @@
       <engine type="petrol">Inline 4</engine>
       <horsepower>186</horsepower>
     </car>
-    <car id="AYV4102WK5L1000025">
+    <car id="AYV4102WK5L100025">
       <brand>Volvo</brand>
       <model>S60</model>
       <year>2022</year>
@@ -249,7 +249,7 @@
       <engine type="petrol">Inline 4</engine>
       <horsepower>185</horsepower>
     </car>
-    <car id="AYTDYZ3DC7KS000029">
+    <car id="AYTDYZ3DC7KS00029">
       <brand>Toyota</brand>
       <model>Highlander</model>
       <year>2021</year>
@@ -326,6 +326,14 @@
       <model>string</model>
       <year>2030</year>
       <price currency="string">2000</price>
+      <engine type="petrol">string</engine>
+      <horsepower>2000</horsepower>
+    </car>
+    <car id="1D7HA18ZX3S171104">
+      <brand>string</brand>
+      <model>string</model>
+      <year>2020</year>
+      <price currency="string">200</price>
       <engine type="petrol">string</engine>
       <horsepower>2000</horsepower>
     </car>
