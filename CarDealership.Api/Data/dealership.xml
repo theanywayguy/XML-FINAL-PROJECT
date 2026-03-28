@@ -249,14 +249,6 @@
       <engine type="petrol">Inline 4</engine>
       <horsepower>185</horsepower>
     </car>
-    <car id="AYTDYZ3DC7KS00029">
-      <brand>Toyota</brand>
-      <model>Highlander</model>
-      <year>2021</year>
-      <price currency="USD">35000</price>
-      <engine type="hybrid">V6 Hybrid</engine>
-      <horsepower>243</horsepower>
-    </car>
     <car id="AHGFC2F69KH000030">
       <brand>Honda</brand>
       <model>Fit</model>
@@ -336,6 +328,14 @@
       <price currency="string">200</price>
       <engine type="petrol">string</engine>
       <horsepower>2000</horsepower>
+    </car>
+    <car id="1GTCT14E7L8584662">
+      <brand>GMC</brand>
+      <model>SIERRA</model>
+      <year>2020</year>
+      <price currency="USD">20000</price>
+      <engine type="petrol">v6</engine>
+      <horsepower>300</horsepower>
     </car>
   </cars>
 </dealership>

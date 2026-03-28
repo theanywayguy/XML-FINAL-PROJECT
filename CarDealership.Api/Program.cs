@@ -181,6 +181,7 @@ app.UseSerilogRequestLogging();
 
 // Custom middleware to catch unhandled crashes and return a clean 500 XML error
 app.UseMiddleware<GlobalExceptionMiddleware>();
+app.UseMiddleware<XmlExceptionMiddleware>();
 
 // ONLY enable Swagger in Development. It is completely hidden in Production environments.
 if (app.Environment.IsDevelopment())
